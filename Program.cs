@@ -1,55 +1,96 @@
-﻿/*
-// Задача 1. Напишите программу,которая на вход принимает число и выдаёт его квадрат (число умноженное на само себя)
+﻿//Задача 2: Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+/*
+ {
+ 
+        int a, b;
+ 
+        Console.WriteLine("Введите два числа : ");
+ 
+        a = Convert.ToInt32(Console.ReadLine());
+ 
+        b = Convert.ToInt32(Console.ReadLine());
+ 
+        if (a > b)
+ 
+        {
+ 
+            Console.WriteLine("{0} наибольшее число", a);
+ 
+        }
+ 
+        else
+ 
+        {
+ 
+            Console.WriteLine("{0} наибольшее число ", b);
+ 
+        }
+ 
+        Console.ReadLine();
+ 
+    }
+*/
 
+// Задача 4: Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
+/*
+Console.WriteLine("Введите 3 числа:");
+            int num_1 = Convert.ToInt32(Console.ReadLine());
+            int num_2 = Convert.ToInt32(Console.ReadLine());
+            int num_3 = Convert.ToInt32(Console.ReadLine());
 
-Console.Write("input a number: ");
+            int max = num_1;
+
+            if (num_2 > max)
+            {
+                max = num_2;
+            }
+
+            if (num_3 > max)
+            {
+                max = num_3;
+            }
+
+            Console.WriteLine("Наибольшее из введённых чисел -> " + max);
+*/
+
+// Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+/*
+Console.WriteLine("Введите число:");
 int num = Convert.ToInt32(Console.ReadLine());
 
-int quad = num * num;
-
-Console.Write("The square of " + num + " is " + quad);
-
-
-// Задача 2. Напишите прог-му котораяна вход принимает два числа и проверяет, является ли первое число квадратом второго.
-Console.Write("input first number: ");
-int n1 = Convert.ToInt32(Console.ReadLine());
-Console.Write("input second number: ");
-int n2 = Convert.ToInt32(Console.ReadLine());
-
-int quad2 = n2 * n2;
-
-if (n1 == quad2)
-
-{
-  Console.WriteLine($"{n1} is quad of {n2}");  
-}
-else
-{
-  Console.WriteLine($"{n1} not quad of {n2}"); 
-}
+if (num % 2 == 1)
+            {
+                Console.WriteLine("Число " + num + " является: НЕЧЁТНЫМ");
+            }
+            else
+            {
+                Console.WriteLine("Число " + num + "является: ЧЁТНЫМ");
+            }
 */
 
-// Задача 3. Напишите программу, которая на вход принимает одно число (N), а на выходе показывает все целые числа в промежутке от -N до N.
+// Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
 /*
-Console.Write("Input integer positive number: ");
+int i = 1;
+            bool not = true;
 
-int number = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите число:");
+            int num = Convert.ToInt32(Console.ReadLine());
 
-int current = number * (-1);
+            Console.WriteLine("Чётные числа от 1 до " + num);
+            while (i <= num)
+            {
+                if (i % 2 != 1)
+                {
+                    Console.Write(i + ", ");
+                    not = false;
+                }
+                i++;
+            }
 
-while(current <= number)
-
-{
-    Console.Write(current + " ");
-    current++;
-}
+            if (not)
+            {
+                Console.WriteLine("Нет чётных чисел!");
+            }
+            
 */
-
-// Задача 4. Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает показывает последнюю цифру этого числа.
-/*
-Console.Write("Input integer three-digit number: ");
-int number = Convert.ToInt32(Console.ReadLine());
-int ed = number % 10;
-
-Console.WriteLine($"Last digit of {number} is {ed}"); 
-*/
+        
