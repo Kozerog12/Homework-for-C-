@@ -1,96 +1,49 @@
-﻿//Задача 2: Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+﻿// Задача 10: Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
 /*
- {
- 
-        int a, b;
- 
-        Console.WriteLine("Введите два числа : ");
- 
-        a = Convert.ToInt32(Console.ReadLine());
- 
-        b = Convert.ToInt32(Console.ReadLine());
- 
-        if (a > b)
- 
-        {
- 
-            Console.WriteLine("{0} наибольшее число", a);
- 
-        }
- 
-        else
- 
-        {
- 
-            Console.WriteLine("{0} наибольшее число ", b);
- 
-        }
- 
-        Console.ReadLine();
- 
-    }
+Console.Clear();
+Console.WriteLine("Задача 10 ");
+Console.Write("Введи трёхзначное число: ");
+int threeDigitNumber = Convert.ToInt32(Console.ReadLine());
+string stringNumber = Convert.ToString(threeDigitNumber);
+Console.WriteLine("вторая цифра этого числа -> "+stringNumber[1]);
+*/
+// Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+// 645 -> 5
+// 78 -> третьей цифры нет
+// 32679 -> 6
+/*
+Console.WriteLine("Задача 13 ");
+
+Console.Write("Введи число: ");
+int anyNumber = Convert.ToInt32(Console.ReadLine());
+string anyNumberText = Convert.ToString(anyNumber);
+if (anyNumberText.Length > 2){
+  Console.WriteLine("третья цифра -> " + anyNumberText[2]);
+}
+else {
+  Console.WriteLine("-> третьей цифры нет");
+}
 */
 
-// Задача 4: Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
+//Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+// 6 -> да
+// 7 -> да
+// 1 -> нет
 /*
-Console.WriteLine("Введите 3 числа:");
-            int num_1 = Convert.ToInt32(Console.ReadLine());
-            int num_2 = Convert.ToInt32(Console.ReadLine());
-            int num_3 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Задача 15 ");
 
-            int max = num_1;
+Console.Write("Введи цифру, обозначающую день недели: ");
+int dayNumber = Convert.ToInt32(Console.ReadLine());
 
-            if (num_2 > max)
-            {
-                max = num_2;
-            }
+void CheckingTheDayOfTheWeek (int dayNumber) {
+  if (dayNumber == 6 || dayNumber == 7) {
+  Console.WriteLine("(этот день выходной) -> да");
+  }
+  else if (dayNumber < 1 || dayNumber > 7) {
+    Console.WriteLine("это вообще не день недели");
+  }
+  else Console.WriteLine("(этот день не выходной) -> нет");
+}
 
-            if (num_3 > max)
-            {
-                max = num_3;
-            }
-
-            Console.WriteLine("Наибольшее из введённых чисел -> " + max);
+CheckingTheDayOfTheWeek(dayNumber);
 */
-
-// Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
-/*
-Console.WriteLine("Введите число:");
-int num = Convert.ToInt32(Console.ReadLine());
-
-if (num % 2 == 1)
-            {
-                Console.WriteLine("Число " + num + " является: НЕЧЁТНЫМ");
-            }
-            else
-            {
-                Console.WriteLine("Число " + num + "является: ЧЁТНЫМ");
-            }
-*/
-
-// Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
-/*
-int i = 1;
-            bool not = true;
-
-            Console.WriteLine("Введите число:");
-            int num = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Чётные числа от 1 до " + num);
-            while (i <= num)
-            {
-                if (i % 2 != 1)
-                {
-                    Console.Write(i + ", ");
-                    not = false;
-                }
-                i++;
-            }
-
-            if (not)
-            {
-                Console.WriteLine("Нет чётных чисел!");
-            }
-            
-*/
-        
