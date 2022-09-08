@@ -1,86 +1,83 @@
-﻿// Задача 41. Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-// 0, 7, 8, -2, -2 -> 2
-// -1, -7, 567, 89, 223-> 3
+﻿// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
 /*
 Console.Clear();
+Console.WriteLine($"Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N");
+int m = InputNumbers("Введите m: ");
+int n = InputNumbers("Введите n: ");
+int temp = m;
 
-Console.WriteLine($"Задача 41. Cколько чисел больше 0 ввёл пользователь \n");
-Console.Write($"Введи число М(количество чисел): ");
-int m = Convert.ToInt32(Console.ReadLine());
-int[] massiveNumbers = new int[m];
-
-void InputNumbers(int m){
-for (int i = 0; i < m; i++)
-  {
- Console.Write($"Введи {i+1} число: ");
- massiveNumbers[i] = Convert.ToInt32(Console.ReadLine());
-  }
-}
-
-
-int Comparison(int[] massiveNumbers)
+if (m > n) 
 {
-  int count = 0;
-  for (int i = 0; i < massiveNumbers.Length; i++)
-  {
-    if(massiveNumbers[i] > 0 ) count += 1; 
-  }
-  return count;
+ m = n; 
+ n = temp;
 }
 
-InputNumbers(m);
+PrintSumm(m, n, temp=0);
 
-Console.WriteLine($"Введено чисел больше 0: {Comparison(massiveNumbers)} ");
+void PrintSumm(int m, int n, int summ)
+{
+ summ = summ + n;
+ if (n <= m)
+  {
+ Console.Write($"Сумма элементов= {summ} ");
+ return;
+  }
+  PrintSumm(m, n - 1, summ);
+}
 
+int InputNumbers(string input) 
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
 */
 
-// Задача 43. Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
-// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; 5,5)
-
+// Задача 64: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+// M = 1; N = 5. -> ""1, 2, 3, 4, 5""
+// M = 4; N = 8. -> ""4, 6, 7, 8""
 /*
-Console.WriteLine($"\nЗадача 43.  Найти точку пересечения двух прямых \n");
+Console.Write("Введи N: ");
+int N = Convert.ToInt16(Console.ReadLine());
+Console.Write("Введи M: ");
+int M = Convert.ToInt16(Console.ReadLine());
+Console.WriteLine($"N={N}, M={M}");
+if (M>N)
+for (int i = N; i <= M; i++)
+    Console.Write($" {i}");
+else
+    for (int i = M; i <= N; i++)
+        Console.Write($" {i}");
+/*
 
-double[,] coeff = new double[2, 2];
-double[] crossPoint = new double[2];
+ // Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+ m = 2, n = 3 -> A(m,n) = 9
+ m = 3, n = 2 -> A(m,n) = 29
+ /*
+ 
+Console.Clear();
+Console.WriteLine($"Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.");
+int m = InputNumbers("Введите m: ");
+int n = InputNumbers("Введите n: ");
 
-void InputCoefficients(){
-  for (int i = 0; i < coeff.GetLength(0); i++)
-  {
-    Console.Write($"Введите коэффициенты {i+1}-го уравнения (y = k * x + b):\n");
-    for (int j = 0; j < coeff.GetLength(1); j++)
-    {
-      if(j==0) Console.Write($"Введите коэффициент k: ");
-      else Console.Write($"Введите коэффициент b: ");
-      coeff[i,j] = Convert.ToInt32(Console.ReadLine());
-    }
-  }
-}
+int functionAkkerman = Ack(m, n);
 
-double[] Decision(double[,] coeff)
+Console.Write($"Функция Аккермана = {functionAkkerman} ");
+
+int Ack(int m, int n)
 {
-  crossPoint[0] = (coeff[1,1] - coeff[0,1]) / (coeff[0,0] - coeff[1,0]);
-  crossPoint[1] = crossPoint[0] * coeff[0,0] + coeff[0,1];
-  return crossPoint;
+  if (m == 0) return n + 1;
+  else if (n == 0) return Ack(m - 1, 1);
+  else return Ack(m - 1, Ack(m, n - 1));
 }
 
-void OutputResponse(double[,] coeff)
+int InputNumbers(string input) 
 {
-  if (coeff[0,0] == coeff[1,0] && coeff[0,1] == coeff[1,1]) 
-  {
-    Console.Write($"\nПрямые совпадают");
-  }
-  else if (coeff[0,0] == coeff[1,0] && coeff[0,1] != coeff[1,1]) 
-  {
-    Console.Write($"\nПрямые параллельны");
-  }
-  else 
-  {
-    Decision(coeff);
-    Console.Write($"\nТочка пересечения прямых: ({crossPoint[0]}, {crossPoint[1]})");
-  }
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
 }
-
-InputCoefficients();
-OutputResponse(coeff);
 
 */
