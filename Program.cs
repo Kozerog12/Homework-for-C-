@@ -1,83 +1,134 @@
-﻿// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
-// M = 1; N = 15 -> 120
-// M = 4; N = 8. -> 30
+﻿// Задача 47: Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
 /*
-Console.Clear();
-Console.WriteLine($"Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N");
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
-int temp = m;
+Console.WriteLine("введите количество строк");
+int linesVol = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов");
+int columnsVol = Convert.ToInt32(Console.ReadLine());
+double[,] numbers = new double[linesVol, columnsVol];
+FillArrayRandomNumbers(numbers);
+PrintArray(numbers);
 
-if (m > n) 
+void FillArrayRandomNumbers(double[,] array)
 {
- m = n; 
- n = temp;
+ for (int i = 0; i < array.GetLength(0); i++)
+    {
+ for (int j = 0; j < array.GetLength(1); j++)
+        {
+ array[i, j] = Convert.ToDouble(new Random().Next(-100, 100)) / 10;
+        }
+    }
 }
 
-PrintSumm(m, n, temp=0);
-
-void PrintSumm(int m, int n, int summ)
+void PrintArray(double[,] array)
 {
- summ = summ + n;
- if (n <= m)
-  {
- Console.Write($"Сумма элементов= {summ} ");
- return;
-  }
-  PrintSumm(m, n - 1, summ);
-}
-
-int InputNumbers(string input) 
-{
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Console.Write("[ ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.Write("]");
+        Console.WriteLine("");
+    }
 }
 */
 
-// Задача 64: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
-// M = 1; N = 5. -> ""1, 2, 3, 4, 5""
-// M = 4; N = 8. -> ""4, 6, 7, 8""
+// Задача 50: Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
 /*
-Console.Write("Введи N: ");
-int N = Convert.ToInt16(Console.ReadLine());
-Console.Write("Введи M: ");
-int M = Convert.ToInt16(Console.ReadLine());
-Console.WriteLine($"N={N}, M={M}");
-if (M>N)
-for (int i = N; i <= M; i++)
-    Console.Write($" {i}");
+Console.WriteLine("введите номер строки");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите номер столбца");
+int m = Convert.ToInt32(Console.ReadLine());
+int [,] numbers = new int [10,10];
+FillArrayRandomNumbers(numbers);
+
+if (n > numbers.GetLength(0) || m > numbers.GetLength(1))
+{
+ Console.WriteLine("такого элемента нет");
+}
 else
-    for (int i = M; i <= N; i++)
-        Console.Write($" {i}");
+{
+ Console.WriteLine($"значение элемента {n} строки и {m} столбца равно {numbers[n-1,m-1]}");
+}
+
+PrintArray(numbers);
+
+void FillArrayRandomNumbers(int[,] array)
+{
+ for (int i = 0; i < array.GetLength(0); i++)
+        {        
+ for (int j = 0; j < array.GetLength(1); j++)
+            {
+                array [i,j] = new Random().Next(-100, 100)/10;
+            }   
+        }
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Console.Write("[ ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i,j] + " ");
+        }   
+        Console.Write("]");
+        Console.WriteLine(""); 
+    }
+}
+*/
+
+//Задача 52: Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 /*
+Console.WriteLine("введите количество строк");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов");
+int m = Convert.ToInt32(Console.ReadLine());
 
- // Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
- m = 2, n = 3 -> A(m,n) = 9
- m = 3, n = 2 -> A(m,n) = 29
- /*
- 
-Console.Clear();
-Console.WriteLine($"Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.");
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
+int[,] numbers = new int[n, m];
+FillArrayRandomNumbers(numbers);
 
-int functionAkkerman = Ack(m, n);
 
-Console.Write($"Функция Аккермана = {functionAkkerman} ");
-
-int Ack(int m, int n)
+for (int j = 0; j < numbers.GetLength(1); j++)
 {
-  if (m == 0) return n + 1;
-  else if (n == 0) return Ack(m - 1, 1);
-  else return Ack(m - 1, Ack(m, n - 1));
+    double avarage = 0;
+    for (int i = 0; i < numbers.GetLength(0); i++)
+    {
+        avarage = (avarage + numbers[i, j]);
+    }
+    avarage = avarage / n;
+    Console.Write(avarage + "; ");
+}
+Console.WriteLine();
+PrintArray(numbers);
+
+
+
+void FillArrayRandomNumbers(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(0, 10);
+        }
+    }
 }
 
-int InputNumbers(string input) 
+void PrintArray(int[,] array)
 {
-  Console.Write(input);
-  int output = Convert.ToInt32(Console.ReadLine());
-  return output;
-}
 
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        Console.Write("[ ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.Write("]");
+        Console.WriteLine("");
+    }
+}
 */
